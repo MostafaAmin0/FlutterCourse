@@ -5,5 +5,5 @@ class Contact {
 
   get name => _name;
   get mail => _mail;
-  get phone => _phone;
+  get number => _phone;
 }

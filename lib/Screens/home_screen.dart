@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
-import 'Contact_Card_Widget.dart';
+
+import '../Model/contact.dart';
+import '../Widgets/contact_card_widget.dart';
+
+final List<Contact> contacts = [
+  Contact("mostafa", "dfjn", "djb"),
+  Contact("mkmnd", "dfjn", "djb"),
+];
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -20,9 +27,17 @@ class HomeScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: Column(
-          children: const [
-            ContactCardWidget(name: "mostafa", mail: "dfjn", number: "djb"),
-            ContactCardWidget(name: "bla", mail: "dfjn", number: "djb"),
+          children: [
+            ContactCardWidget(
+              name: contacts[0].name,
+              mail: contacts[0].mail,
+              number: contacts[0].number,
+            ),
+            ContactCardWidget(
+              name: contacts[1].name,
+              mail: contacts[1].mail,
+              number: contacts[1].number,
+            ),
           ],
         ),
       ),
