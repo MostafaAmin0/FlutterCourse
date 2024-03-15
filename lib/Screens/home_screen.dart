@@ -5,7 +5,7 @@ import '../Widgets/contact_card_widget.dart';
 
 final List<Contact> contacts = [
   Contact("mostafa", "dfjn", "djb"),
-  Contact("mkmnd", "dfjn", "djb"),
+  Contact("mkmnd", "mosu", "djb"),
 ];
 
 class HomeScreen extends StatelessWidget {
@@ -27,18 +27,16 @@ class HomeScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: Column(
-          children: [
-            ContactCardWidget(
-              name: contacts[0].name,
-              mail: contacts[0].mail,
-              number: contacts[0].number,
-            ),
-            ContactCardWidget(
-              name: contacts[1].name,
-              mail: contacts[1].mail,
-              number: contacts[1].number,
-            ),
-          ],
+          children: List<Widget>.generate(
+            contacts.length,
+            (index) {
+              return ContactCardWidget(
+                name: contacts[index].name,
+                mail: contacts[index].mail,
+                number: contacts[index].number,
+              );
+            },
+          ),
         ),
       ),
     );
