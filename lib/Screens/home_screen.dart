@@ -11,7 +11,20 @@ class _HomeScreenState extends State<HomeScreen> {
   int _count = 0;
 
   @override
+  void initState() {
+    super.initState();
+    _count = 0;
+    print('initState is called');
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    print('build is called');
     return Scaffold(
       appBar: AppBar(
         title: const Text("Profile"),
@@ -23,6 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
           setState(() {
             _count++;
           });
+          print(_count);
         },
         child: const Icon(Icons.plus_one),
       ),
