@@ -8,17 +8,15 @@ class ContactListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: List<Widget>.generate(
-        MyContacts.contacts.length,
-        (index) {
-          return ContactCardWidget(
-            name: MyContacts.contacts[index].name,
-            mail: MyContacts.contacts[index].mail,
-            number: MyContacts.contacts[index].number,
-          );
-        },
-      ),
+    return ListView.builder(
+      itemCount: MyContacts.contacts.length,
+      itemBuilder: (context, index) {
+        return ContactCardWidget(
+          name: MyContacts.contacts[index].name,
+          mail: MyContacts.contacts[index].mail,
+          number: MyContacts.contacts[index].number,
+        );
+      },
     );
   }
 }
