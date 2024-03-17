@@ -1,9 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:lab_g2/Screens/add_contact_screen.dart';
 import 'package:lab_g2/Screens/contact_list_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  static const List<Widget> _widgetOptions = <Widget>[
+    ContactListScreen(),
+    AddContactScreen(),
+    ContactListScreen(),
+  ];
+
+  int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,8 +25,32 @@ class HomeScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.lightBlue,
       ),
-      body: const SafeArea(
-        child: ContactListScreen(),
+      body: SafeArea(
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "Profile",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: "Settings",
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.red,
+        onTap: (value) {
+          setState(() {
+            _selectedIndex = value;
+          });
+          print(_selectedIndex);
+        },
       ),
     );
   }
