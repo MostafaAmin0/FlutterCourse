@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lab_g2/Models/contact_list.dart';
+
 import '../Widgets/contact_card_widget.dart';
 
 class ContactListScreen extends StatelessWidget {
