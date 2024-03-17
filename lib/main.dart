@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lab_g2/Screens/contact_list_screen.dart';
 import 'package:lab_g2/Screens/home_screen.dart';
 
 void main() => runApp(const MyApp());
@@ -10,7 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: ContactListScreen(),
+      home: HomeScreen(),
     );
   }
 }
