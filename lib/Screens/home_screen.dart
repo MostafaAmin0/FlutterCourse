@@ -13,7 +13,6 @@ class _HomeScreenState extends State<HomeScreen> {
   static const List<Widget> _widgetOptions = <Widget>[
     ContactListScreen(),
     AddContactScreen(),
-    ContactListScreen(),
   ];
 
   int _selectedIndex = 0;
@@ -37,10 +36,6 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: "Profile",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: "Settings",
           ),
         ],
         currentIndex: _selectedIndex,
