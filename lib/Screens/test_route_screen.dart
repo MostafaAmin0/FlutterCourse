@@ -9,6 +9,7 @@ class TestRouteScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Test Route Screen"),
+        centerTitle: true,
       ),
       body: Center(child: Text("Test Route Screen")),
     );
