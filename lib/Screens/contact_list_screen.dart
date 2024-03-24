@@ -15,7 +15,7 @@ class ContactListScreen extends StatelessWidget {
           name: MyContacts.contacts[index].name,
           mail: MyContacts.contacts[index].mail,
           number: MyContacts.contacts[index].number,
-          color: index.isEven ? Colors.lightBlue : Colors.lightGreen,
+          color: index.isEven ? Colors.redAccent : Colors.lightGreen,
         );
       },
     );

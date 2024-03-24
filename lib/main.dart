@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lab_g2/Screens/add_contact_screen.dart';
 import 'package:lab_g2/Screens/home_screen.dart';
-
-import 'Screens/test_route_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       routes: {
         "/": (ctx) => const HomeScreen(),
-        "/test": (ctx) => const TestRouteScreen(),
+        "/AddContact": (ctx) => const AddContactScreen(),
       },
     );
   }
