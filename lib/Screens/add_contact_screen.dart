@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../Model/MyContacts.dart';
+import 'package:provider/provider.dart';
 import '../Model/contact.dart';
+import '../Provider/contact_provider.dart';
 
 class AddContactScreen extends StatefulWidget {
   const AddContactScreen({super.key});
@@ -67,11 +67,10 @@ class _AddContactScreenState extends State<AddContactScreen> {
             child: ElevatedButton(
               child: const Text("Add Contact"),
               onPressed: () {
-                MyContacts.contacts.add(Contact(
-                  nameCtrlr.value.text,
-                  mailCtrlr.value.text,
-                  phoneCtrlr.value.text,
-                ));
+                Contact newContact = Contact(nameCtrlr.value.text,
+                    mailCtrlr.value.text, phoneCtrlr.value.text);
+                Provider.of<ContactProvider>(context, listen: false)
+                    .createNewContact(newContact: newContact);
                 Navigator.pop(context);
               },
             ),

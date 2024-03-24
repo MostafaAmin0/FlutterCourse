@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../Model/MyContacts.dart';
+import '../Provider/contact_provider.dart';
 import '../Widgets/contact_card_widget.dart';
 
 class ContactListScreen extends StatelessWidget {
@@ -9,12 +11,22 @@ class ContactListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: MyContacts.contacts.length,
+      itemCount:
+          Provider.of<ContactProvider>(context).myContacts.contacts.length,
       itemBuilder: (context, index) {
         return ContactCardWidget(
-          name: MyContacts.contacts[index].name,
-          mail: MyContacts.contacts[index].mail,
-          number: MyContacts.contacts[index].number,
+          name: Provider.of<ContactProvider>(context)
+              .myContacts
+              .contacts[index]
+              .name,
+          mail: Provider.of<ContactProvider>(context)
+              .myContacts
+              .contacts[index]
+              .mail,
+          number: Provider.of<ContactProvider>(context)
+              .myContacts
+              .contacts[index]
+              .number,
           color: index.isEven ? Colors.redAccent : Colors.lightGreen,
         );
       },
