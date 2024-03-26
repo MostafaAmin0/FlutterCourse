@@ -67,10 +67,14 @@ class _AddContactScreenState extends State<AddContactScreen> {
             child: ElevatedButton(
               child: const Text("Add Contact"),
               onPressed: () {
-                Contact newContact = Contact(nameCtrlr.value.text,
-                    mailCtrlr.value.text, phoneCtrlr.value.text);
+                Contact newContact = Contact(
+                  nameCtrlr.value.text,
+                  mailCtrlr.value.text,
+                  phoneCtrlr.value.text,
+                );
                 Provider.of<ContactProvider>(context, listen: false)
-                    .createNewContact(newContact: newContact);
+                    .addContact(newContact);
+
                 Navigator.pop(context);
               },
             ),

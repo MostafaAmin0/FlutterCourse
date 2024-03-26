@@ -12,21 +12,14 @@ class ContactListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount:
-          Provider.of<ContactProvider>(context).myContacts.contacts.length,
+          // ContactProvider().myContacts.contacts.length,
+          Provider.of<ContactProvider>(context, listen: true).contacts.length,
       itemBuilder: (context, index) {
+        var list = Provider.of<ContactProvider>(context).contacts;
         return ContactCardWidget(
-          name: Provider.of<ContactProvider>(context)
-              .myContacts
-              .contacts[index]
-              .name,
-          mail: Provider.of<ContactProvider>(context)
-              .myContacts
-              .contacts[index]
-              .mail,
-          number: Provider.of<ContactProvider>(context)
-              .myContacts
-              .contacts[index]
-              .number,
+          name: list[index].name,
+          mail: list[index].mail,
+          number: list[index].number,
           color: index.isEven ? Colors.redAccent : Colors.lightGreen,
         );
       },
