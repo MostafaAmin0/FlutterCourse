@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lab_g2/Model/MyContacts.dart';
 import 'package:provider/provider.dart';
 import '../Model/contact.dart';
 import '../Provider/contact_provider.dart';
@@ -74,7 +75,6 @@ class _AddContactScreenState extends State<AddContactScreen> {
                 );
                 Provider.of<ContactProvider>(context, listen: false)
                     .addContact(newContact);
-
                 Navigator.pop(context);
               },
             ),
