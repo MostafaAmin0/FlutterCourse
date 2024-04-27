@@ -11,6 +11,11 @@ class ContactProvider extends ChangeNotifier {
 
   void addContact(Contact newContact) async {
     var contactsCollection = FirebaseFirestore.instance.collection('Contacts');
+    await contactsCollection.add({
+      'name': newContact.name,
+      'mail': newContact.mail,
+      'number': newContact.number,
+    });
     contacts.add(newContact);
     notifyListeners();
   }
