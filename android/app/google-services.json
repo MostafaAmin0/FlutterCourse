@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "611746277242",
+    "project_id": "contactapp-3c263",
+    "storage_bucket": "contactapp-3c263.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:611746277242:android:056418f9c3a621e94fd8c3",
+        "android_client_info": {
+          "package_name": "com.example.lab_g2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVcpabkUaE1xBADjHVifk9M3vGE5LLzbQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
