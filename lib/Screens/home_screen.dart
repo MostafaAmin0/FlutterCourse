@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:lab_g2/Screens/add_contact_screen.dart';
 import 'package:lab_g2/Screens/contact_list_screen.dart';
-import 'package:provider/provider.dart';
-import '../Provider/contact_provider.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  static const List<Widget> _widgetOptions = <Widget>[
+    ContactListScreen(),
+    AddContactScreen(),
+  ];
+
+  int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,27 +24,28 @@ class HomeScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.lightBlue,
       ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () {
-          Navigator.of(context).pushNamed("/AddContact");
-        },
-      ),
       body: SafeArea(
-        child: FutureBuilder(
-          future: Provider.of<ContactProvider>(context, listen: false)
-              .getContacts(),
-          builder: (context, snapShot) {
-            if (snapShot.connectionState == ConnectionState.waiting) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            } else if (snapShot.error != null) {
-              ///TODO handle error
-            }
-            return ContactListScreen();
-          },
-        ),
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "Profile",
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.red,
+        onTap: (value) {
+          setState(() {
+            _selectedIndex = value;
+          });
+          print(_selectedIndex);
+        },
       ),
     );
   }
