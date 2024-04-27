@@ -69,6 +69,7 @@ class _AddContactScreenState extends State<AddContactScreen> {
               child: const Text("Add Contact"),
               onPressed: () {
                 Contact newContact = Contact(
+                  "",
                   nameCtrlr.value.text,
                   mailCtrlr.value.text,
                   phoneCtrlr.value.text,

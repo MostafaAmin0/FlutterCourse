@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../Model/MyContacts.dart';
 import '../Model/contact.dart';
 import '../Provider/contact_provider.dart';
 import '../Widgets/contact_card_widget.dart';
