@@ -1,84 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:lab_g2/Model/MyContacts.dart';
-import 'package:provider/provider.dart';
-import '../Model/contact.dart';
-import '../Provider/contact_provider.dart';
+import 'package:lab_g2/Screens/test_route_screen.dart';
 
-class AddContactScreen extends StatefulWidget {
+class AddContactScreen extends StatelessWidget {
   const AddContactScreen({super.key});
 
   @override
-  State<AddContactScreen> createState() => _AddContactScreenState();
-}
-
-class _AddContactScreenState extends State<AddContactScreen> {
-  late TextEditingController nameCtrlr;
-  late TextEditingController phoneCtrlr;
-  late TextEditingController mailCtrlr;
-
-  @override
-  void dispose() {
-    nameCtrlr.dispose();
-    mailCtrlr.dispose();
-    phoneCtrlr.dispose();
-    super.dispose();
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    nameCtrlr = TextEditingController();
-    phoneCtrlr = TextEditingController();
-    mailCtrlr = TextEditingController();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Add Contact"),
-        centerTitle: true,
-        backgroundColor: Colors.lightBlue,
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    return Center(
+      child: Column(
         children: [
-          TextField(
-            decoration: const InputDecoration(
-              fillColor: Colors.lightBlue,
-              hintText: 'Name',
-            ),
-            controller: nameCtrlr,
+          ElevatedButton(
+            child: const Text("Add Contact"),
+            onPressed: () {
+              //navigate to new screen
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const TestRouteScreen();
+                  },
+                ),
+              );
+            },
           ),
-          TextField(
-            decoration: const InputDecoration(
-              fillColor: Colors.lightBlue,
-              hintText: 'mail',
-            ),
-            controller: mailCtrlr,
-          ),
-          TextField(
-            decoration: const InputDecoration(
-              fillColor: Colors.lightBlue,
-              hintText: 'phone',
-            ),
-            controller: phoneCtrlr,
-          ),
-          Center(
-            child: ElevatedButton(
-              child: const Text("Add Contact"),
-              onPressed: () {
-                Contact newContact = Contact(
-                  "",
-                  nameCtrlr.value.text,
-                  mailCtrlr.value.text,
-                  phoneCtrlr.value.text,
-                );
-                Provider.of<ContactProvider>(context, listen: false)
-                    .addContact(newContact);
-                Navigator.pop(context);
-              },
-            ),
+          ElevatedButton(
+            child: const Text("Named route"),
+            onPressed: () {
+              //navigate to new screen
+              Navigator.of(context).pushNamed("/test");
+            },
           ),
         ],
       ),
